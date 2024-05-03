@@ -27,13 +27,14 @@
         <!-- MainActivity -->
         <activity
             android:name="com.example.tcc1_abdiel.MainActivity"
+            android:label="Main Activity"
             android:exported="true"
-            android:label="Main Activity" />
+             />
 
         <activity
             android:name="com.example.tcc1_abdiel.SignInActivity"
-            android:exported="true"
-            android:label="Main Activity" />
+            android:label="Sign In"
+            android:exported="true"></activity>
 
         <!-- Other activities and configurations -->
 

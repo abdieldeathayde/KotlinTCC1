@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class SignInActivity : Activity() {
@@ -15,25 +14,26 @@ class SignInActivity : Activity() {
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_in)
 
-//        firebaseAuth.getInstance()
 
         val txtView = findViewById<TextView>(R.id.textView)
-        val btn = findViewById<Button>(R.id.button)
-        val edTextEmail = findViewById<EditText>(R.id.emailEt)
-        val edtPassword = findViewById<EditText>(R.id.passET)
+        val botao = findViewById<Button>(R.id.button)
+        val email = findViewById<EditText>(R.id.emailEt)
+        val pass = findViewById<EditText>(R.id.passET)
 
+        setContentView(R.layout.activity_sign_in)
+
+
+        firebaseAuth = FirebaseAuth.getInstance()
         txtView.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
 
-        btn.setOnClickListener {
-            val email = edTextEmail.text.toString()
-            val pass = edtPassword.text.toString()
+        botao.setOnClickListener {
+            val email = email.text.toString()
+            val pass = pass.text.toString()
 
             if (email.isNotEmpty() && pass.isNotEmpty()) {
 
@@ -43,12 +43,22 @@ class SignInActivity : Activity() {
                         startActivity(intent)
                     } else {
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+
                     }
                 }
             } else {
-                Toast.makeText(this, "Senha e email não podem estar vazios", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
+
             }
         }
     }
-}
 
+    override fun onStart() {
+        super.onStart()
+
+        if(firebaseAuth.currentUser != null){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+    }
+}

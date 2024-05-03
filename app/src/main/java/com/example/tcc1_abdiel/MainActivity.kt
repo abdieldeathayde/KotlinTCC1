@@ -11,13 +11,24 @@ class MainActivity : AppCompatActivity() {
 
         // Verifica se o usuário já fez login
         val isLoggedIn = checkIfUserIsLoggedIn()
+        val isregistred = checkIfUserRegistred()
 
         if (isLoggedIn) {
             // Se o usuário já fez login, vá para a MainActivity
             startMainActivity()
+        } else if (!isregistred) {
+            startSignInActivity()
         } else {
             // Caso contrário, vá para a SignUpActivity
             startSignUpActivity()
+        }
+    }
+
+    private fun checkIfUserRegistred(): Boolean {
+        if (checkIfUserIsLoggedIn()) {
+            return true
+        } else {
+            return false
         }
     }
 
@@ -32,6 +43,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun startSignUpActivity() {
         val intent = Intent(this, SignUpActivity::class.java)
+        startActivity(intent)
+        finish() // Finaliza a MainActivity para que o usuário não possa voltar a ela
+    }
+
+    private fun startSignInActivity() {
+        val intent = Intent(this, SignInActivity::class.java)
         startActivity(intent)
         finish() // Finaliza a MainActivity para que o usuário não possa voltar a ela
     }

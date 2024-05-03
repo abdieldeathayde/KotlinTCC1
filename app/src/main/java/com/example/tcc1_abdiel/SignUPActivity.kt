@@ -5,57 +5,55 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
 class SignUpActivity : Activity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
-    override fun onCreate(savedInstanceState: Bundle?) {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val textView = findViewById<TextView>(com.example.tcc1_abdiel.R.id.textView)
+        val button = findViewById<Button>(com.example.tcc1_abdiel.R.id.button)
+        val emailEt = findViewById<EditText>(com.example.tcc1_abdiel.R.id.emailEt)
+        val passET = findViewById<TextView>(com.example.tcc1_abdiel.R.id.passET)
+        val confirmPassEt = findViewById<TextView>(com.example.tcc1_abdiel.R.id.confirmPassEt)
+
         setContentView(R.layout.activity_sign_up)
 
-        val edTextEmail = findViewById<EditText>(R.id.editTextEmailAddress)
+        firebaseAuth = FirebaseAuth.getInstance()
 
-        edTextEmail.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
+        textView.setOnClickListener {
+            val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
         }
-        val btn = findViewById<Button>(R.id.button)
-        val password = findViewById<EditText>(R.id.editTextPassword)
-        val confirmPassword = findViewById<EditText>(R.id.editTextConfirrmPassword)
-
-        btn.setOnClickListener {
-            val email = edTextEmail.text.toString()
-            val pass = password.text.toString()
-            val confirmPass = confirmPassword.text.toString()
+        button.setOnClickListener {
+            val email = emailEt.text.toString()
+            val pass = passET.text.toString()
+            val confirmPass = confirmPassEt.text.toString()
 
             if (email.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty()) {
                 if (pass == confirmPass) {
-                    firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
+
+                    firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
+                        if (it.isSuccessful) {
                             val intent = Intent(this, SignInActivity::class.java)
                             startActivity(intent)
                         } else {
-                            Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+
                         }
                     }
                 } else {
-                    Toast.makeText(this, "As senhas não coincidem", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Password is not matching", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, "O email e a senha não podem estar vazios", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
+
             }
         }
-
-
-
-        // Encontre a ImageView com o ID imageView no layout
-        val logoImageView = findViewById<ImageView>(R.id.imageView)
-
-        // Defina a imagem da logo (substitua R.drawable.logo pelo ID da sua imagem)
-        logoImageView.setImageResource(R.drawable.ifsc)
     }
 }
