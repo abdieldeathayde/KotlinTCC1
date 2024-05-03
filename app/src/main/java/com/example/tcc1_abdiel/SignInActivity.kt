@@ -24,20 +24,24 @@ class SignInActivity : Activity() {
 
         setContentView(R.layout.activity_sign_in)
 
-
-        firebaseAuth = FirebaseAuth.getInstance()
-        txtView.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
+        if (txtView != null) {
+            txtView.setOnClickListener {
+                val intent = Intent(this, SignUpActivity::class.java)
+                startActivity(intent)
+            }
         }
 
+
+        firebaseAuth = FirebaseAuth.getInstance()
+
+
         botao.setOnClickListener {
-            val email = email.text.toString()
-            val pass = pass.text.toString()
+            val email1 = email.text.toString()
+            val pass1 = pass.text.toString()
 
-            if (email.isNotEmpty() && pass.isNotEmpty()) {
+            if (email1.isNotEmpty() && pass1.isNotEmpty()) {
 
-                firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
+                firebaseAuth.signInWithEmailAndPassword(email1, pass1).addOnCompleteListener {
                     if (it.isSuccessful) {
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)

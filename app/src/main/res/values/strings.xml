@@ -5,4 +5,8 @@
     <string name="digite_sua_senha">Digite sua senha:</string>
     <string name="confirme_a_sua_senha">Confirme a sua senha:</string>
     <string name="already_registered_sign_in">Already Registered , Sign In !</string>
+    <string name="retype_your_password">Retype Your Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="type_your_email">Type your Email</string>
+    <string name="type_your_password">Type Your Password</string>
 </resources>
