@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">TCC1-Abdiel</string>
     <string name="logo_ifsc">Logo ifsc</string>
+    <string name="digite_seu_email">Digite seu Email:</string>
+    <string name="digite_sua_senha">Digite sua senha:</string>
+    <string name="confirme_a_sua_senha">Confirme a sua senha:</string>
+    <string name="already_registered_sign_in">Already Registered , Sign In !</string>
 </resources>
