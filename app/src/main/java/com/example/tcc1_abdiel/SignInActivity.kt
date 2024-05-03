@@ -17,42 +17,41 @@ class SignInActivity : Activity() {
         super.onCreate(savedInstanceState)
 
 
-        val txtView = findViewById<TextView>(R.id.textView)
         val botao = findViewById<Button>(R.id.button)
         val email = findViewById<EditText>(R.id.emailEt)
         val pass = findViewById<EditText>(R.id.passET)
 
         setContentView(R.layout.activity_sign_in)
 
-        if (txtView != null) {
-            txtView.setOnClickListener {
-                val intent = Intent(this, SignUpActivity::class.java)
-                startActivity(intent)
-            }
+        findViewById<TextView>(R.id.textView)?.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
         }
 
 
         firebaseAuth = FirebaseAuth.getInstance()
 
+        if (botao != null) {
+            botao.setOnClickListener {
+                val email1 = email.text.toString()
+                val pass1 = pass.text.toString()
 
-        botao.setOnClickListener {
-            val email1 = email.text.toString()
-            val pass1 = pass.text.toString()
+                if (email1.isNotEmpty() && pass1.isNotEmpty()) {
 
-            if (email1.isNotEmpty() && pass1.isNotEmpty()) {
+                    firebaseAuth.signInWithEmailAndPassword(email1, pass1).addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            val intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
 
-                firebaseAuth.signInWithEmailAndPassword(email1, pass1).addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
-                    } else {
-                        Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-
+                        }
                     }
-                }
-            } else {
-                Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT)
+                        .show()
 
+                }
             }
         }
     }

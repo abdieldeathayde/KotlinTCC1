@@ -16,8 +16,7 @@ class SignUpActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val textView = findViewById<TextView>(com.example.tcc1_abdiel.R.id.textView)
-        val button = findViewById<Button>(com.example.tcc1_abdiel.R.id.button)
+        val button1 = findViewById<Button>(com.example.tcc1_abdiel.R.id.button)
         val emailEt = findViewById<EditText>(com.example.tcc1_abdiel.R.id.emailEt)
         val passET = findViewById<TextView>(com.example.tcc1_abdiel.R.id.passET)
         val confirmPassEt = findViewById<TextView>(com.example.tcc1_abdiel.R.id.confirmPassEt)
@@ -26,37 +25,42 @@ class SignUpActivity : Activity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        if (textView != null) {
-            textView.setOnClickListener {
-                val intent = Intent(this, SignInActivity::class.java)
-                startActivity(intent)
-            }
+        findViewById<TextView>(R.id.textView)?.setOnClickListener {
+            val intent = Intent(this, SignInActivity::class.java)
+            startActivity(intent)
         }
 
+        if(button1 != null) {
+            button1.setOnClickListener {
+                val email = emailEt.text.toString()
+                val pass = passET.text.toString()
+                val confirmPass = confirmPassEt.text.toString()
 
-        button.setOnClickListener {
-            val email = emailEt.text.toString()
-            val pass = passET.text.toString()
-            val confirmPass = confirmPassEt.text.toString()
+                if (email.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty()) {
+                    if (pass == confirmPass) {
 
-            if (email.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty()) {
-                if (pass == confirmPass) {
+                        firebaseAuth.createUserWithEmailAndPassword(email, pass)
+                            .addOnCompleteListener {
+                                if (it.isSuccessful) {
+                                    val intent = Intent(this, SignInActivity::class.java)
+                                    startActivity(intent)
+                                } else {
+                                    Toast.makeText(
+                                        this,
+                                        it.exception.toString(),
+                                        Toast.LENGTH_SHORT
+                                    ).show()
 
-                    firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            val intent = Intent(this, SignInActivity::class.java)
-                            startActivity(intent)
-                        } else {
-                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-
-                        }
+                                }
+                            }
+                    } else {
+                        Toast.makeText(this, "Password is not matching", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Toast.makeText(this, "Password is not matching", Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT)
+                        .show()
 
+                }
             }
         }
     }
