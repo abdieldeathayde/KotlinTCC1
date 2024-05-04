@@ -21,11 +21,12 @@ class SignUpActivity : Activity() {
         val emailEt = findViewById<EditText>(R.id.emailEt)
         val passEt = findViewById<EditText>(R.id.passET)
         val confirmPassEt = findViewById<EditText>(R.id.confirmPassEt)
-        val imageView = findViewById<ImageView>(R.id.imageView)
-
-
+//        val imageView = findViewById<ImageView>(R.id.imageView)
 
         firebaseAuth = FirebaseAuth.getInstance()
+
+
+
 
         findViewById<TextView>(R.id.textView)?.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)
@@ -37,12 +38,15 @@ class SignUpActivity : Activity() {
             val pass = passEt.text.toString()
             val confirmPass = confirmPassEt.text.toString()
 
+
+
             if (email.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty()) {
                 if (pass == confirmPass) {
 
                     firebaseAuth.createUserWithEmailAndPassword(email, pass)
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
+                                firebaseAuth = FirebaseAuth.getInstance()
                                 val intent = Intent(this, SignInActivity::class.java)
                                 startActivity(intent)
                             } else {
