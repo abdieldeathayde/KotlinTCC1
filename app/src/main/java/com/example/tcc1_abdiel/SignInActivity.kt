@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -15,13 +16,13 @@ class SignInActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_sign_in)
 
-
-        val botao = findViewById<Button>(R.id.button)
         val email = findViewById<EditText>(R.id.emailEt)
         val pass = findViewById<EditText>(R.id.passET)
+        val logoIFSC = findViewById<ImageView>(R.id.imageView)
 
-        setContentView(R.layout.activity_sign_in)
+
 
         findViewById<TextView>(R.id.textView)?.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
@@ -31,27 +32,24 @@ class SignInActivity : Activity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        if (botao != null) {
-            botao.setOnClickListener {
-                val email1 = email.text.toString()
-                val pass1 = pass.text.toString()
+        findViewById<Button>(R.id.button)?.setOnClickListener {
+            val email1 = email.text.toString()
+            val pass1 = pass.text.toString()
 
-                if (email1.isNotEmpty() && pass1.isNotEmpty()) {
+            if (email1.isNotEmpty() && pass1.isNotEmpty()) {
 
-                    firebaseAuth.signInWithEmailAndPassword(email1, pass1).addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            val intent = Intent(this, MainActivity::class.java)
-                            startActivity(intent)
-                        } else {
-                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                firebaseAuth.signInWithEmailAndPassword(email1, pass1).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
 
-                        }
                     }
-                } else {
-                    Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT)
-                        .show()
-
                 }
+            } else {
+                Toast.makeText(this, "Campos não podem estar vazios !!", Toast.LENGTH_SHORT).show()
+
             }
         }
     }

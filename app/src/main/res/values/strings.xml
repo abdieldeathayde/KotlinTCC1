@@ -9,4 +9,6 @@
     <string name="sign_up">Sign Up</string>
     <string name="type_your_email">Type your Email</string>
     <string name="type_your_password">Type Your Password</string>
+    <string name="digite_a_sua_senha">Digite a sua senha:</string>
+    <string name="cadastrar_me">Cadastrar-me</string>
 </resources>

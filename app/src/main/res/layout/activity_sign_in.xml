@@ -12,13 +12,16 @@
         android:layout_width="409dp"
         android:layout_height="64dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="236dp"
         android:src="@drawable/ifsc"
+        android:contentDescription="Logo IFSC"
+        app:layout_constraintBottom_toTopOf="@+id/emailLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.351"
-        tools:ignore="ContentDescription,VisualLintBounds"
+        tools:ignore="VisualLintBounds"
         tools:src="@drawable/ifsc" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -112,7 +115,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:text="@string/already_registered_sign_in"
+        android:text="cadastre-se"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
