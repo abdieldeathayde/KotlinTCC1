@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TCC1-Abdiel</string>
+    <string name="app_name">IFSC-Eventos</string>
     <string name="logo_ifsc">Logo ifsc</string>
     <string name="digite_seu_email">Digite seu Email:</string>
     <string name="digite_sua_senha">Digite sua senha:</string>
@@ -7,8 +7,12 @@
     <string name="already_registered_sign_in">Already Registered , Sign In !</string>
     <string name="retype_your_password">Retype Your Password</string>
     <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
     <string name="type_your_email">Type your Email</string>
     <string name="type_your_password">Type Your Password</string>
     <string name="digite_a_sua_senha">Digite a sua senha:</string>
     <string name="cadastrar_me">Cadastrar-me</string>
+    <string name="j_registrado_efetue_login">Já registrado, efetue Login</string>
+    <string name="cadastre_se">cadastre-se</string>
+    <string name="ifsc_eventos">IFSC Eventos</string>
 </resources>

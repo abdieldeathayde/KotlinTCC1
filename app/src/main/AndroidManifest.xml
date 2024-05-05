@@ -14,7 +14,7 @@
 
         <!-- SignUpActivity -->
         <activity
-            android:name="com.example.tcc1_abdiel.SignUpActivity"
+            android:name=".SignUpActivity"
             android:label="Sign Up"
             android:exported="true">
             <!-- Intent filter for the main action -->
@@ -24,17 +24,21 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".SignInActivity"
+            android:label="Sign In"
+            android:exported="true"/>
+
         <!-- MainActivity -->
         <activity
-            android:name="com.example.tcc1_abdiel.MainActivity"
-            android:label="Main Activity"
-            android:exported="true"
-             />
+            android:name=".MainActivity"
+            android:label="Main"
+            android:exported="true" />
 
-        <activity
-            android:name="com.example.tcc1_abdiel.SignInActivity"
-            android:label="Sign In"
-            android:exported="true"></activity>
+
+
+
+
 
         <!-- Other activities and configurations -->
 

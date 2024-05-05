@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -19,7 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.351"
-        tools:ignore="VisualLintBounds"
         tools:src="@drawable/ifsc" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -35,7 +35,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailEt"
-            android:layout_width="340dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Digite seu email:"
             android:inputType="textEmailAddress"
@@ -57,7 +57,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passET"
-            android:layout_width="343dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/digite_a_sua_senha"
             android:inputType="textPassword" />
@@ -78,7 +78,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/confirmPassEt"
-            android:layout_width="343dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/confirme_a_sua_senha"
             android:inputType="textPassword"
@@ -87,7 +87,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
-        android:layout_width="285dp"
+        android:layout_width="match_parent"
         android:layout_height="51dp"
         android:layout_marginHorizontal="16dp"
         android:text="@string/cadastrar_me"
@@ -101,12 +101,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Já registrado, efetue Login"
+        android:text="@string/j_registrado_efetue_login"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
