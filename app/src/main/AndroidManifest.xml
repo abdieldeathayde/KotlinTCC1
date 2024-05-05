@@ -15,7 +15,7 @@
         <!-- SignUpActivity -->
         <activity
             android:name=".SignUpActivity"
-            android:label="Sign Up"
+            android:label="IFSC Eventos"
             android:exported="true">
             <!-- Intent filter for the main action -->
             <intent-filter>
@@ -26,13 +26,13 @@
 
         <activity
             android:name=".SignInActivity"
-            android:label="Sign In"
+            android:label="IFSC Eventos"
             android:exported="true"/>
 
         <!-- MainActivity -->
         <activity
             android:name=".MainActivity"
-            android:label="Main"
+            android:label="IFSC Eventos"
             android:exported="true" />
 
 
