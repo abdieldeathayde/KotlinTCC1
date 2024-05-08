@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "365150925186",
+    "project_id": "tcc1-abdiel",
+    "storage_bucket": "tcc1-abdiel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:365150925186:android:460cf627d7213645109f9b",
+        "android_client_info": {
+          "package_name": "com.example.tcc1_abdiel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAp7iZe6NWSHhodxsmcsqaTBIzCReK1Iho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

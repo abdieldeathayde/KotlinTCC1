@@ -5,17 +5,17 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ifsc"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ifsc"
         android:supportsRtl="true"
         android:theme="@style/Theme.TCC1Abdiel"
         tools:targetApi="31">
 
         <!-- SignUpActivity -->
         <activity
-            android:name="com.example.tcc1_abdiel.SignUpActivity"
-            android:label="Sign Up"
+            android:name=".SignUpActivity"
+            android:label="IFSC Eventos"
             android:exported="true">
             <!-- Intent filter for the main action -->
             <intent-filter>
@@ -24,15 +24,21 @@
             </intent-filter>
         </activity>
 
-        <!-- LoginActivity -->
         <activity
-            android:name="com.example.tcc1_abdiel.LoginActivity"
-            android:label="Login" />
+            android:name=".SignInActivity"
+            android:label="IFSC Eventos"
+            android:exported="true"/>
 
         <!-- MainActivity -->
         <activity
-            android:name="com.example.tcc1_abdiel.MainActivity"
-            android:label="Main Activity" />
+            android:name=".MainActivity"
+            android:label="IFSC Eventos"
+            android:exported="true" />
+
+
+
+
+
 
         <!-- Other activities and configurations -->
 
