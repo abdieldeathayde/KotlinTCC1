@@ -114,7 +114,7 @@
         android:id="@+id/textInputLayout"
         android:layout_width="375dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="130dp"
+        android:layout_marginBottom="160dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -133,7 +133,7 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="69dp"
+        android:layout_marginBottom="115dp"
         android:hint="Email:"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,7 +149,7 @@
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="17dp"
         android:layout_marginEnd="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -158,6 +158,6 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="381dp"
             android:layout_height="match_parent"
-            android:hint="hint" />
+            android:hint="Telefone" />
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
