@@ -7,7 +7,7 @@
     tools:context=".SignUpActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewLogoIFSC"
         android:layout_width="409dp"
         android:layout_height="64dp"
         android:layout_marginEnd="8dp"
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="14dp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -90,13 +90,13 @@
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="50dp"
         android:text="@string/cadastrar_me"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirmPasswordLayout"
-        app:layout_constraintVertical_bias="0.847" />
+        app:layout_constraintVertical_bias="0.786" />
 
     <TextView
         android:id="@+id/textView"
@@ -106,46 +106,51 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.303" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="375dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="160dp"
+        android:id="@+id/textInputLayoutMatricula"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="190dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirmPasswordLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TexttInputEditTextMatricula"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Matrícula" />
+            android:hint="@string/matr_cula" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/textInputLayoutCurso"
         android:layout_width="380dp"
         android:layout_height="54dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="115dp"
-        android:hint="Email:"
+        android:layout_marginBottom="150dp"
+        android:hint="@string/curso"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutMatricula">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TextInputEditTextCurso"
             android:layout_width="376dp"
             android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextInputLayoutTelefone"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -153,11 +158,12 @@
         android:layout_marginEnd="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCurso">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TextInputEditTextTelefone"
             android:layout_width="381dp"
             android:layout_height="match_parent"
-            android:hint="Telefone" />
+            android:hint="@string/telefone" />
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

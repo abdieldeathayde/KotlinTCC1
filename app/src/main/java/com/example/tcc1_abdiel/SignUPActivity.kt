@@ -24,6 +24,9 @@ class SignUpActivity : Activity() {
         val confirmPassEditText = findViewById<EditText>(R.id.confirmPassEt)
 
         val texto = findViewById<TextView>(R.id.textView)
+        val matricula = findViewById<EditText>(R.id.TexttInputEditTextMatricula)
+        val curso = findViewById<EditText>(R.id.TextInputEditTextCurso)
+        val telefone = findViewById<EditText>(R.id.TextInputEditTextTelefone)
 
         texto.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)
@@ -35,11 +38,17 @@ class SignUpActivity : Activity() {
             val pass = passEditText.text.toString()
             val confirmPass = confirmPassEditText.text.toString()
 
-            if (email.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty()) {
+
+            if (email.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty() ) {
                 if (pass == confirmPass) {
                     firebaseAuth.createUserWithEmailAndPassword(email, pass)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
+                                val matriculaAluno = matricula.text.toString()
+                                val cursoTema = curso.text.toString()
+                                val telefoneContato = telefone.text.toString()
+                                firebaseAuth = FirebaseAuth.getInstance()
+
                                 val intent = Intent(this, SignInActivity::class.java)
                                 startActivity(intent)
                             } else {

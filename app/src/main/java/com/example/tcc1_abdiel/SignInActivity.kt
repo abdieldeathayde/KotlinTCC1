@@ -8,6 +8,8 @@ import android.widget.EditText
 //import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.example.tcc1_abdiel.R.id.textView
+import com.example.tcc1_abdiel.R.id.textViewInscricaoAluno
 import com.google.firebase.auth.FirebaseAuth
 
 class SignInActivity : Activity() {
@@ -23,7 +25,7 @@ class SignInActivity : Activity() {
         val email = findViewById<EditText>(R.id.emailEt)
         val pass = findViewById<EditText>(R.id.passET)
 //        val logoIFSC = findViewById<ImageView>(R.id.imageView)
-        val texto = findViewById<TextView>(R.id.textView)
+        val texto = findViewById<TextView>(textViewInscricaoAluno)
 
         texto.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
