@@ -16,4 +16,6 @@
     <string name="cadastre_se">cadastre-se</string>
     <string name="ifsc_eventos">IFSC Eventos</string>
     <string name="container">container</string>
+    <string name="cadastre_se_aluno">Cadastre-se aluno</string>
+    <string name="cadastre_se_tecnico_ou_professor">Cadastre-se Técnico ou Professor</string>
 </resources>
